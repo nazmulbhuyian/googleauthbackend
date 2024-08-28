@@ -20,7 +20,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://googleauth-m57fx.ondigitalocean.app",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
