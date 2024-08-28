@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const CLIENT_URL = "http://localhost:3000";
+const CLIENT_URL = "https://googleauth-m57fx.ondigitalocean.app/";
 // const CLIENT_URL = "http://localhost:5000/auth/login/failed";
 
 router.get("/login/success", (req, res) => {
