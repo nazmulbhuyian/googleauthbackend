@@ -19,6 +19,7 @@ router.get("/login/success", (req, res) => {
 router.get("/login/failed", (req, res) => {
   console.log(req?.user)
   if (req?.user) {
+    req.session.userEmail = req.user.emails[0].value;
     // Set the email in a cookie
     res.cookie("userEmail", req.user.emails[0].value, {
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
