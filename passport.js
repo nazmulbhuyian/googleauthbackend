@@ -11,7 +11,10 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL:
+        process.env.NODE_ENV === "production"
+          ? "https://googleauthbackend-judrv.ondigitalocean.app/auth/google/callback"
+          : "http://localhost:5000/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       done(null, profile);
