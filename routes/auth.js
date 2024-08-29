@@ -18,6 +18,14 @@ router.get("/login/success", (req, res) => {
 
 router.get("/login/failed", (req, res) => {
   console.log(req?.user)
+  if (req?.user) {
+    // Set the email in a cookie
+    res.cookie("userEmail", req.user.emails[0].value, {
+      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      httpOnly: true, // Prevent client-side JavaScript from accessing the cookie
+      secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // Cross-site cookie policy
+    });
   res.status(401).json({
     success: false,
     message: "failure",
