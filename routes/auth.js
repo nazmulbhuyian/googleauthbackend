@@ -26,6 +26,7 @@ router.get("/login/failed", (req, res) => {
       secure: process.env.NODE_ENV === "production", // Use secure cookies in production
       sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // Cross-site cookie policy
     });
+  }
   res.status(401).json({
     success: false,
     message: "failure",
