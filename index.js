@@ -6,6 +6,9 @@ const authRoute = require("./routes/auth");
 const app = express();
 const session = require("express-session");
 
+// Trust the proxy (e.g., Nginx or other load balancers)
+app.set("trust proxy", 1);
+
 app.use(
   session({
     secret: "lama", // replace with your secret key
