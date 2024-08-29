@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const CLIENT_URL = "https://googleauth-m57fx.ondigitalocean.app/";
-// const CLIENT_URL = "http://localhost:5000/auth/login/failed";
+// const CLIENT_URL = "https://googleauth-m57fx.ondigitalocean.app/";
+const CLIENT_URL = "https://googleauthbackend-judrv.ondigitalocean.app/auth/login/failed";
 
 router.get("/login/success", (req, res) => {
-  console.log(req?.user);
+  // console.log(req?.user);
   if (req?.user) {
     res.status(200).json({
       success: true,
@@ -17,7 +17,7 @@ router.get("/login/success", (req, res) => {
 });
 
 router.get("/login/failed", (req, res) => {
-  // console.log(req?.user)
+  console.log(req?.user)
   res.status(401).json({
     success: false,
     message: "failure",
